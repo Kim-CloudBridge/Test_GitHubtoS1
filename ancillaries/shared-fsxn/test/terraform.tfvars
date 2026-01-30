@@ -1,0 +1,16 @@
+region                    = "eu-west-2"
+client_id                 = "0000"
+env_suffix                = "t"
+tier                      = "tier3"
+env_domain                = "TEST"
+fsx_storage_type          = "SSD"
+fsx_storage_capacity      = "1127"
+fsx_throughput_capacity   = "256"
+fsx_deployment_type       = "SINGLE_AZ_1"
+gen_fsx_security_group_id = ""
+core_storage_allocation   = 102400
+mdb_storage_allocation    = 337920
+rdb_storage_allocation    = 675840
+fsx_disk_iops             = 40000
+ad_dns_ip                 = ["10.210.124.188", "10.210.124.232"]
+ad_domain_name            = "lscloud.systems"

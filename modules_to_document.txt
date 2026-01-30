@@ -1,0 +1,7 @@
+ancillaries/central-vpc-flow-logs
+ancillaries/firewall/active-passive-firewall
+ancillaries/firewall/gateway-lb-firewall
+ancillaries/managed-ad
+ancillaries/transit-gateway/transit-gateway-networking
+modules/ssm-domain-join
+modules/ad-accept

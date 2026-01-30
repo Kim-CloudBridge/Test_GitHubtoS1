@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Deploys Terraform Administrator across the Landing Zone
+
+Parameters:
+  SharedServicesAccountId:
+    Type: String
+    Default: '665790084258'
+
+Resources: 
+  TerraformAdminSvcRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: TerraformAdministratorServiceRoleCF
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS:
+                - !Ref SharedServicesAccountId
+            Action:
+              - sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+      Path: /
+
+Outputs:
+  TerraformAdminSvcRoleARN:
+    Value: !GetAtt TerraformAdminSvcRole.Arn

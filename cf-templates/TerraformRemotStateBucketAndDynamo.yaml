@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Terraform Remote State Bucket
+
+Resources:
+  TerraformRemoteStateBucket:
+    Metadata:
+      cfn-lint: { config: { ignore_checks: [ W3011 ] } }
+    Type: 'AWS::S3::Bucket'
+    DeletionPolicy: Retain
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'AES256'
+      BucketName: 'hms-01x-0000ss-tfn-states-bucket'
+      VersioningConfiguration:
+        Status: Enabled
+
+  TerraformRemoteStateTable:
+    Metadata:
+      cfn-lint: { config: { ignore_checks: [ W3011 ] } }
+    Type: 'AWS::DynamoDB::Table'
+    DeletionPolicy: Retain
+    Properties:
+      TableName: 'hms-01x-0000ss-tfn-state-table'
+      AttributeDefinitions:
+        - AttributeName: LockID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: LockID
+          KeyType: HASH
+      BillingMode: PAY_PER_REQUEST
