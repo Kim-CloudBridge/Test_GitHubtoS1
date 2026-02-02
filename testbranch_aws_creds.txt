@@ -1,0 +1,5 @@
+[testbranch_aws_creds]
+aws_access_key_id = AKIAZ6Z5IX4REOZ5RD7T
+aws_secret_access_key = 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
+output = json
+region = us-east-2
